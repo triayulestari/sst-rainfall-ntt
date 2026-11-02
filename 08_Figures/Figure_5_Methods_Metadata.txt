@@ -1,0 +1,12 @@
+Figure 5: Seasonal partial SST-rainfall correlations
+Source: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\06_Climate_Mode_Sensitivity\seasonal_partial_robustness_results.csv
+Top-to-bottom: Flores, Sumba, Timor.
+Controls: Nino 3.4 and DMI separately.
+Conditional residual permutations: 10000 per test.
+BH-FDR: separate 12-test families per index.
+Shared color limits: [-1,+1].
+Nino significant=0; suggestive=2.
+DMI significant=0; suggestive=0.
+Dagger means suggestive, NOT significant.
+Seasonal sample size: n=9 or n=10.
+Results are exploratory and decade-specific.

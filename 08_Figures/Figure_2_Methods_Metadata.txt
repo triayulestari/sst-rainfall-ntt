@@ -1,0 +1,12 @@
+Figure 2 data source: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\02_Regional_Timeseries\regional_anomalies.mat
+Panels (a),(b): 2016-2025 calendar-month-mean regional SST and rainfall.
+Panels (c),(d): 2016-2025 monthly deseasonalized anomalies.
+Definition: monthly value minus 2016-2025 mean of the SAME calendar month.
+Region order: Flores, Sumba, Timor.
+SST: 118 available months; 2025 Oct-Nov NaN and not interpolated.
+Rainfall: 120 available months; CHIRPS monthly mm.
+Calendar-month SST Oct-Nov base n=9, other SST n=10; rainfall n=10.
+December 2025 SST drawn as isolated points after the missing gap.
+No overall-mean-anomaly or detrended series are displayed in Figure 2.
+Styles: three distinct line types and consistent colors across all panels.
+Figure PNG exported at 600 dpi; PDF as vector.

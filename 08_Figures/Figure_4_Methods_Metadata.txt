@@ -1,0 +1,14 @@
+FIGURE 4 | CLEAN LATITUDES / HIGHER-CONTRAST COLOR
+Data: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\05_Spatial_Analysis\spatial_correlation_results.mat
+Summary: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\05_Spatial_Analysis\spatial_correlation_summary.csv
+M_Map Mercator + GSHHS high-resolution coastline.
+Exact CHIRPS Figure 1 coordinate boxes, no context expansion.
+M_Map latitude tickstyle=dd with exact custom degree-S labels.
+Colorbar: true r values; zero-centered [-0.4,+0.4].
+Contrast-enhanced diverging RGB stops at -0.2,-0.1,0,0.1,0.2.
+No changes to r maps, grid masks, p values, or qFDR.
+Flores=110/1158; Sumba=0/565; Timor=0/1088 within-region q<0.05.
+Pooled BH-FDR (2811 grids): 0 significant.
+All 110 Flores grid centers displayed; no spatial interpolation.
+Colored data clipped to original valid CHIRPS land masks.
+PDF uses high-resolution raster to avoid GSHHS vector warnings.

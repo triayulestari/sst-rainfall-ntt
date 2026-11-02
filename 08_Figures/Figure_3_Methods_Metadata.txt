@@ -1,0 +1,42 @@
+FIGURE 3 - | MATLAB R2021a
+========================================= 
+
+Copy c_figure3_lagged_seasonal_correlations.m to:
+  Data/08_Figures/c_figure3_lagged_seasonal_correlations.m
+
+Sources read by script (do not copy/move):
+  Data/03_Monthly_and_Lagged/lagged_correlation_results.csv
+  Data/04_Seasonal_Analysis/seasonal_robustness_results.csv
+
+Run in MATLAB:
+  c_figure3_lagged_seasonal_correlations
+
+Output in SAME Data/08_Figures folder:
+  Figure_3_Lagged_Seasonal_Correlations.png (600 dpi)
+  Figure_3_Lagged_Seasonal_Correlations.pdf (vector)
+  Figure_3_Annotation_QC.csv
+  Figure_3_Methods_Metadata.txt
+
+Structure retained:
+  (a) Lagged correlation (-6...+6 months) [left, wider]
+  (b) Seasonal correlation heatmap (DJF,MAM,JJA,SON) [right, narrower]
+
+Symbols follow FINAL qFDR values from CSVs:
+  * + THICK BLACK SOLID BORDER: qFDR < 0.05 (significant after FDR)
+  dagger + DARK GRAY DASHED BORDER: 0.05 <= qFDR < 0.10 (suggestive only)
+  no symbol/no border: qFDR >= 0.10
+
+For (a), outline RINGS and daggers highlight only the three suggestive
+points: Flores lag +3 and +4, Timor lag +4. None qFDR < 0.05.
+For (b), four FDR retained cells and two suggestive cells.
+
+Statistical methods retained, no recalculation:
+  Lagged: autocorrelation-adjusted Neff/p, BH-FDR across 39.
+  Seasonal: 10,000 year permutations, BH-FDR across 12.
+
+Warning: CI/FDR/LOYO uncertainty details remain in Stage 04 tables.
+Yearwise permutations do not prove observations independent/exchangeable.
+
+Notice: code has been checked for input names and annotation logic but
+cannot be executed with MATLAB R2021a in this environment. Please inspect
+actual exported PNG and send it for final QC.

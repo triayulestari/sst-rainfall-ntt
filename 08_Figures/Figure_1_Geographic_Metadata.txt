@@ -1,0 +1,14 @@
+Figure 1 geographic and source metadata
+Map projection: Mercator (M_Map MATLAB toolkit).
+Coordinate reference: decimal longitude/latitude, WGS84 convention.
+View: 118 to 127.5 E, -11.5 to -7.0 latitude.
+Latitude ticks shown in BOTH panels: 8, 9, 10, 11 degrees South.
+Coastline: GSHHS high-resolution via M_Map m_gshhs_h.
+Coastline MATLAB function: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\08_Figures\m_gshhs_h.m
+ACTION BEFORE SUBMISSION: record exact installed GSHHS release, source URL, and supply/link geographic boundary data subject to license.
+Red boxes: CHIRPS rectangular coordinate selections, NOT polygon masks.
+No administrative masking or coastline clipping performed in analysis.
+Rainfall: CHIRPS v3, native monthly totals (mm), 120 months.
+SST: cropped Himawari L3 (H08 then H09), degree Celsius, 118 months; Oct-Nov 2025 unavailable.
+SST climatology: 12 equally weighted calendar-month means, each built from available years.
+Map-scale bar: approximate, at 11.15 degrees south.

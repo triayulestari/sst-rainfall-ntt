@@ -1,0 +1,4 @@
+Region,Valid_grid_count,Within_region_FDR_005_count,Pooled_FDR_005_count,Displayed_significant_dots,Median_Pearson_r,Lon_min,Lon_max,Lat_min,Lat_max
+Flores,1158,110,0,110,0.0625073620255634,118.975,123.525,-9.225,-7.875
+Sumba,565,0,0,0,0.0361157158759999,118.775,121.225,-10.525,-9.175
+Timor,1088,0,0,0,0.13028073315014,123.275,126.025,-10.625,-8.575
