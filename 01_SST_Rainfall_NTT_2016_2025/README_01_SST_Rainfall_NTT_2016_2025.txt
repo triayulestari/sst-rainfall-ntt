@@ -19,7 +19,9 @@ SOFTWARE AND ORIGINAL DATA SOURCES
 - Original Himawari-9 SST Level-3 v2.1: October 2022-December 2025,
   excluding unavailable October and November 2025.
 - CHIRPS version 3.0 monthly precipitation: January 2016-December 2025.
-
+- Original Himawari SST and CHIRPS downloads: 29 July 2026
+  (researcher-recorded date of initial download).
+  
 DIRECTORY STRUCTURE - PRESERVE THESE LOCATIONS
 -----------------------------------------------
 Data/

@@ -15,10 +15,13 @@ MATLAB R2021a.
 NOAA Physical Sciences Laboratory (PSL) monthly indices:
 https://psl.noaa.gov/data/timeseries/month/Nino34/
 https://psl.noaa.gov/data/timeseries/month/DMI/
+The original NOAA PSL Niño 3.4 and DMI data were downloaded on
+12 September 2026 (researcher record).
 The deposited climate_indices_input_2016_2025.csv is the fixed monthly
-snapshot used for reproducing the analysis. Its source version, definition,
-and retrieval date should be documented; a complete snapshot alone is
-not an independent validation of index provenance.
+snapshot used for reproducing the analysis. See
+NOAA_PSL_Index_Provenance.txt in this folder for the source definitions,
+download date, and remaining verification limitations. A complete snapshot
+alone is not independent validation that all values match the source files.
 
 RUN IN ORDER
 ------------

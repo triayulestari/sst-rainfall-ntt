@@ -79,6 +79,8 @@ Stage 05 also reads the Stage 02 regional SST anomaly series; Stage 06 reads Sta
 | ENSO indicator | Monthly **Niño 3.4 SST anomaly** index; documented input snapshot | Monthly | Analysis period 2016–2025 | [NOAA PSL Niño 3.4](https://psl.noaa.gov/data/timeseries/month/Nino34/) |
 | IOD indicator | Monthly **Dipole Mode Index (DMI)**; documented input snapshot | Monthly | Analysis period 2016–2025 | [NOAA PSL DMI](https://psl.noaa.gov/data/timeseries/month/DMI/) |
 
+**Original download dates (researcher records):** Himawari SST and CHIRPS v3.0 were first downloaded on **29 July 2026**; the NOAA PSL Niño 3.4 and DMI series were first downloaded on **12 September 2026**. These dates identify the original data retrieval, not independent verification that currently available provider files are numerically unchanged. See [Stage 06 NOAA PSL index provenance](06_Climate_Mode_Sensitivity/NOAA_PSL_Index_Provenance.txt) for remaining source-snapshot checks.
+
 The SST time series uses the **product availability in this research archive**; the October 2022 product boundary should not be interpreted as the official operational satellite handover date. The transition combines different satellite sensors and processing-product versions. Their cross-product continuity was **not independently validated** in this study.
 
 SST values in the cropped NetCDF files are in **degrees Celsius** (the GrADS SST cropping script subtracts 273.15 from the Kelvin input). Cropped CHIRPS data represent monthly accumulated precipitation, retained in **mm per calendar month**; they are not multiplied or divided by 1,000 in subsequent scripts.

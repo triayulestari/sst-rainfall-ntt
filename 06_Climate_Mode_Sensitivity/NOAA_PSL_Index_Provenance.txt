@@ -1,0 +1,66 @@
+NOAA PSL CLIMATE-INDEX DATA PROVENANCE
+SST–Rainfall Associations across Flores, Sumba and Timor (2016–2025)
+
+PURPOSE
+This note documents NOAA Physical Sciences Laboratory (PSL)
+index definitions relevant to Stage 06, the researcher-recorded original
+download date, and the fixed numerical snapshot used in the analysis.
+The series definitions below still require checking against the exact source
+files from which the archived input CSV was assembled.
+
+ARCHIVED ANALYSIS INPUT
+Repository folder: 06_Climate_Mode_Sensitivity/
+File: climate_indices_input_2016_2025.csv
+Period: January 2016–December 2025 (120 monthly positions per index)
+Role: Fixed input snapshot for the Stage 06 partial-correlation workflow.
+The original numerical values in this file should be preserved rather than
+silently replaced by a newly downloaded or differently defined index.
+
+NINO 3.4 INDEX — OFFICIAL NOAA PSL SERIES
+Documentation: https://psl.noaa.gov/data/timeseries/month/Nino34/
+Provider/calculation: NOAA PSL
+Source SST dataset: HadISST1.1
+Region: 5°N–5°S, 170°W–120°W
+Definition: Area-averaged monthly SST anomalies
+Stated anomaly reference period: 1981–2010
+Units: degrees Celsius
+Important: This HadISST1.1 series is distinct from the separately available
+NOAA/CPC Niño 3.4 series based on ERSST. Do not substitute one without checking
+its numerical consistency with the published input snapshot.
+
+DIPOLE MODE INDEX (DMI) — OFFICIAL NOAA PSL SERIES
+Documentation: https://psl.noaa.gov/data/timeseries/month/DMI/
+Provider/calculation: NOAA PSL
+Source SST dataset: HadISST1.1
+Definition: Western Indian Ocean SST anomaly minus southeastern Indian Ocean
+SST anomaly, using the NOAA PSL published geographical boxes.
+Western box: 50°–70°E, 10°S–10°N
+Southeastern box: 90°–110°E, 10°S–0°N
+Units: degrees Celsius
+Anomaly reference period: Not explicitly specified on the NOAA PSL DMI index
+landing page examined for this documentation. Do not assume that it matches
+the Niño 3.4 1981–2010 baseline without verification of the original product.
+Note that the published NOAA PSL western box differs from some definitions
+in foundational IOD literature; document the actual series used.
+
+DATA RETRIEVAL AND VERIFICATION
+Original NOAA PSL Niño 3.4 and DMI download date (researcher record): 2026-09-12
+Original downloaded source filename(s): not yet confirmed; record exact filenames if retained
+NOAA PSL webpage documentation checked: 2026-11-02
+Numerical matching of the archived snapshot to a specific NOAA PSL download:
+[NOT YET VERIFIED; update only after a value-by-value check]
+Optional SHA-256 of archived study snapshot: not yet recorded; calculate from the deposited CSV if desired
+
+ANALYSIS HANDLING
+The index data were treated as already-defined monthly climate-index series;
+they were not deseasonalized again using the 2016–2025 monthly means.
+Seasonal values were formed from the corresponding three monthly index values.
+Niño 3.4 and DMI were adjusted for separately, not simultaneously, in the
+reported seasonal partial correlations.
+
+REPRODUCIBILITY LIMITATION
+NOAA PSL series may be updated over time. The archived
+climate_indices_input_2016_2025.csv is the definitive numerical input for
+reproducing the published Stage 06 analysis. This note describes the NOAA PSL
+products but does not, by itself, demonstrate that the archived CSV values
+have been independently matched to the original download.
