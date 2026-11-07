@@ -72,6 +72,8 @@ Stage 05 also reads the Stage 02 regional SST anomaly series; Stage 06 reads Sta
 
 ## 3. Original data products and provenance
 
+**CHIRPS nomenclature:** This study uses **Climate Hazards Center Infrared Precipitation with Stations (CHIRPS) version 3.0**, consistent with the [official CHIRPS v3 product page](https://www.chc.ucsb.edu/data/chirps3) and [Funk et al. (2026)](https://doi.org/10.1038/s41597-026-07096-4). The [CHC datasets index](https://www.chc.ucsb.edu/data) also uses the wording “InfraRed Precipitation with Station data” (singular). These are naming variants, **not separate rainfall products**; this repository consistently uses *Stations* when expanding the v3 acronym.
+
 | Variable | Product and version used | Resolution | Study availability | Provider |
 |---|---|---|---|---|
 | Marine SST | **Himawari-8 Level-3 SST, product v2.0** (January 2016–September 2022); **Himawari-9 Level-3 SST, product v2.1** (October 2022 onward in the study archive) | Monthly, nominal **0.02° × 0.02°** | **118/120** months; October–November 2025 missing | [JAXA Himawari Monitor/P-Tree](https://www.eorc.jaxa.jp/ptree/registration_top.html) |
@@ -327,7 +329,7 @@ The following values provide **consistency checks** against the final analytical
 
 - **Repository:** https://github.com/triayulestari/sst-rainfall-ntt
 - **Releases:** https://github.com/triayulestari/sst-rainfall-ntt/releases
-- **Maintainer-reported fixed release:** `v1.0`. **Before citing it as the exact reproducibility package**, confirm that its tag contains the final eight-folder structure, final scripts, necessary MAT/CSV outputs, and this README. If these were added *after* `v1.0` was created, publish a **new fixed release** and cite that version instead of implying that `v1.0` contains later modifications.
+- **Reproducibility release cited in the manuscript and Supplementary Materials:** [`v1.1.0`](https://github.com/triayulestari/sst-rainfall-ntt/releases/tag/v1.1.0). Before final submission, verify that this tag contains the intended eight-stage workflow, scripts, required intermediate MAT/CSV outputs, and supporting documentation. Changes to `main`, **including a README update, do not automatically change the tagged snapshot**. If the final workflow differs materially from `v1.1.0`, create and cite a new fixed release.
 - **Paper status:** Accompanying journal manuscript under revision. Add the final article DOI and archived repository citation upon publication.
 
 The published repository should clearly distinguish data supplied in the archive from files generated locally after downloading provider data. Reuse of source products is subject to provider access and redistribution terms. Script/code reuse conditions should be specified by an explicit repository license if the authors choose to provide one; third-party packages retain their own licenses.
