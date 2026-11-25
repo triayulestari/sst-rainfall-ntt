@@ -26,7 +26,7 @@
 * ../00_Raw_Data/Himawari_SST_L3_FullDisk/
 *
 * Output directory:
-* ../02_Cropped_Data/SST_NTT/
+* ../
 *
 * ============================================================
 
