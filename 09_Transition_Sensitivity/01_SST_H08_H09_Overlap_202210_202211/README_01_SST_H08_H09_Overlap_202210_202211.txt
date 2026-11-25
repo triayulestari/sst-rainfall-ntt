@@ -1,0 +1,19 @@
+# Input SST files: October–November 2022
+
+Place the **four original monthly NetCDF files** here. Expected names begin:
+
+1. `H08_20221001_0000_1MSST200_... .nc`
+2. `H08_20221101_0000_1MSST200_... .nc`
+3. `H09_20221001_0000_1MSST201_... .nc`
+4. `H09_20221101_0000_1MSST201_... .nc`
+
+The script matches `H08_20221001_0000_1MSST*.nc`, etc. Exactly **one file
+per platform and calendar month** must match. Do not rename a product to
+make it look like another satellite or version.
+
+The files should be obtained from the documented original SST archive; save
+the acquisition URL, access date, original filenames, and algorithm/product
+versions in the manuscript's data inventory.
+
+The `.nc` files are omitted from the small GitHub-ready starter package.
+

@@ -1,0 +1,238 @@
+
+===== CLEAN TRANSITION SENSITIVITY START =====
+Original Data root : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data
+Sensitivity folder : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity
+Maximum stage      : 6
+Delta convention   : H09 - H08
+SKIP completed: 01 / Source overlap
+SKIP 02 / Both raw regional scenarios already exist.
+SKIP completed: Stage 02 / H08_Final / b_compute_regional_anomalies.m
+SKIP completed: Stage 02 / H09_Alternative / b_compute_regional_anomalies.m
+LINEAGE QC PASS: H08 matches original to 1e-8; H09 differs only in 6 SST inputs; all CHIRPS identical.
+SKIP completed: Stage 03 / H08_Final / a_monthly_zero_lag.m
+SKIP completed: Stage 03 / H09_Alternative / a_monthly_zero_lag.m
+SKIP completed: Stage 03 / H08_Final / b_autocorrelation_effective_n.m
+SKIP completed: Stage 03 / H09_Alternative / b_autocorrelation_effective_n.m
+SKIP completed: Stage 03 / H08_Final / c_lagged_correlation.m
+SKIP completed: Stage 03 / H09_Alternative / c_lagged_correlation.m
+SKIP completed: Stage 04 / H08_Final / a_seasonal_mean_anomalies.m
+SKIP completed: Stage 04 / H09_Alternative / a_seasonal_mean_anomalies.m
+SKIP completed: Stage 04 / H08_Final / b_seasonal_correlation.m
+SKIP completed: Stage 04 / H09_Alternative / b_seasonal_correlation.m
+SKIP completed: Stage 04 / H08_Final / c_seasonal_robustness.m
+SKIP completed: Stage 04 / H09_Alternative / c_seasonal_robustness.m
+SKIP completed: Stage 04 / H08_Final / d_check_seasonal_annual_dependence.m
+SKIP completed: Stage 04 / H09_Alternative / d_check_seasonal_annual_dependence.m
+SKIP completed: Stage 04 / H08_Final / e_compile_seasonal_uncertainty.m
+SKIP completed: Stage 04 / H09_Alternative / e_compile_seasonal_uncertainty.m
+SKIP completed: Stage 05 / H08_Final / b_spatial_correlation_fdr.m
+SKIP completed: Stage 05 / H09_Alternative / b_spatial_correlation_fdr.m
+
+RUN: Stage 06 / H08_Final / a_prepare_climate_indices.m
+
+===== CLIMATE INDICES QC =====
+Input mode = snapshot_csv
+Niño 3.4 valid = 120/120; DMI valid = 120/120
+Jan 2016: Nino34=+2.130; DMI=+0.265
+Dec 2025: Nino34=-0.390; DMI=-0.017
+Season count: DJF=9, MAM=10, JJA=10, SON=9
+Saved: climate_indices_2016_2025.mat and 3 CSVs
+PASS: Stage 06 / H08_Final / a_prepare_climate_indices.m
+
+RUN: Stage 06 / H09_Alternative / a_prepare_climate_indices.m
+
+===== CLIMATE INDICES QC =====
+Input mode = snapshot_csv
+Niño 3.4 valid = 120/120; DMI valid = 120/120
+Jan 2016: Nino34=+2.130; DMI=+0.265
+Dec 2025: Nino34=-0.390; DMI=-0.017
+Season count: DJF=9, MAM=10, JJA=10, SON=9
+Saved: climate_indices_2016_2025.mat and 3 CSVs
+PASS: Stage 06 / H09_Alternative / a_prepare_climate_indices.m
+
+RUN: Stage 06 / H08_Final / b_seasonal_partial_correlation.m
+
+===== SEASONAL PARTIAL CORRELATION QC =====
+Region     Season   N      Raw r    Nino34 partial r   DMI partial r
+Flores     DJF    9    -0.7115     +0.0793          -0.5268
+Flores     MAM   10    +0.0627     -0.1925          +0.2069
+Flores     JJA   10    +0.8569     +0.8348          +0.6985
+Flores     SON    9    +0.6284     +0.3375          -0.1145
+Sumba      DJF    9    -0.5448     +0.1099          -0.3708
+Sumba      MAM   10    -0.2615     -0.3404          -0.1226
+Sumba      JJA   10    +0.8382     +0.8213          +0.6647
+Sumba      SON    9    +0.4176     +0.1031          -0.2212
+Timor      DJF    9    -0.1026     +0.2431          -0.1494
+Timor      MAM   10    -0.1651     -0.3351          +0.1697
+Timor      JJA   10    +0.7917     +0.7411          +0.6553
+Timor      SON    9    +0.8149     +0.6816          +0.3018
+Only coefficients are final here; qFDR is computed by script c.
+Saved: seasonal_partial_correlation_results.csv/.mat and QC CSV
+PASS: Stage 06 / H08_Final / b_seasonal_partial_correlation.m
+
+RUN: Stage 06 / H09_Alternative / b_seasonal_partial_correlation.m
+
+===== SEASONAL PARTIAL CORRELATION QC =====
+Region     Season   N      Raw r    Nino34 partial r   DMI partial r
+Flores     DJF    9    -0.7115     +0.0793          -0.5268
+Flores     MAM   10    +0.0627     -0.1925          +0.2069
+Flores     JJA   10    +0.8569     +0.8348          +0.6985
+Flores     SON    9    +0.6868     +0.4181          +0.0165
+Sumba      DJF    9    -0.5448     +0.1099          -0.3708
+Sumba      MAM   10    -0.2615     -0.3404          -0.1226
+Sumba      JJA   10    +0.8382     +0.8213          +0.6647
+Sumba      SON    9    +0.4665     +0.1601          -0.1292
+Timor      DJF    9    -0.1026     +0.2431          -0.1494
+Timor      MAM   10    -0.1651     -0.3351          +0.1697
+Timor      JJA   10    +0.7917     +0.7411          +0.6553
+Timor      SON    9    +0.8551     +0.7459          +0.4670
+Only coefficients are final here; qFDR is computed by script c.
+Saved: seasonal_partial_correlation_results.csv/.mat and QC CSV
+PASS: Stage 06 / H09_Alternative / b_seasonal_partial_correlation.m
+
+RUN: Stage 06 / H08_Final / c_seasonal_partial_robustness.m
+
+===== CONDITIONAL PERMUTATION QC =====
+10,000 two-sided permutations; rng(2026,'twister').
+Niño 3.4 and DMI are separate 12-test FDR families.
+Region    Season N  Original r  Nino partial r  Nino q  DMI partial r  DMI q
+Flores    DJF    9   -0.711      +0.079        0.8534    -0.527      0.5120
+Flores    MAM   10   +0.063      -0.193        0.8221    +0.207      0.7800
+Flores    JJA   10   +0.857      +0.835        0.0840    +0.698      0.2036
+Flores    SON    9   +0.628      +0.337        0.7424    -0.115      0.7800
+Sumba     DJF    9   -0.545      +0.110        0.8534    -0.371      0.7800
+Sumba     MAM   10   -0.261      -0.340        0.7424    -0.123      0.7800
+Sumba     JJA   10   +0.838      +0.821        0.1360    +0.665      0.2036
+Sumba     SON    9   +0.418      +0.103        0.8534    -0.221      0.7800
+Timor     DJF    9   -0.103      +0.243        0.8221    -0.149      0.7800
+Timor     MAM   10   -0.165      -0.335        0.7424    +0.170      0.7800
+Timor     JJA   10   +0.792      +0.741        0.0840    +0.655      0.2036
+Timor     SON    9   +0.815      +0.682        0.1887    +0.302      0.7800
+FDR q<0.05: Nino34=0/12, DMI=0/12.
+Saved: seasonal_partial_robustness_results.csv/.mat and LOYO/QC CSVs
+PASS: Stage 06 / H08_Final / c_seasonal_partial_robustness.m
+
+RUN: Stage 06 / H09_Alternative / c_seasonal_partial_robustness.m
+
+===== CONDITIONAL PERMUTATION QC =====
+10,000 two-sided permutations; rng(2026,'twister').
+Niño 3.4 and DMI are separate 12-test FDR families.
+Region    Season N  Original r  Nino partial r  Nino q  DMI partial r  DMI q
+Flores    DJF    9   -0.711      +0.079        0.8534    -0.527      0.5120
+Flores    MAM   10   +0.063      -0.193        0.8221    +0.207      0.8226
+Flores    JJA   10   +0.857      +0.835        0.0840    +0.698      0.2036
+Flores    SON    9   +0.687      +0.418        0.6431    +0.016      0.9686
+Sumba     DJF    9   -0.545      +0.110        0.8534    -0.371      0.7347
+Sumba     MAM   10   -0.261      -0.340        0.6431    -0.123      0.8226
+Sumba     JJA   10   +0.838      +0.821        0.1020    +0.665      0.2036
+Sumba     SON    9   +0.467      +0.160        0.8416    -0.129      0.8226
+Timor     DJF    9   -0.103      +0.243        0.8221    -0.149      0.8226
+Timor     MAM   10   -0.165      -0.335        0.6431    +0.170      0.8226
+Timor     JJA   10   +0.792      +0.741        0.0840    +0.655      0.2036
+Timor     SON    9   +0.855      +0.746        0.1020    +0.467      0.5510
+FDR q<0.05: Nino34=0/12, DMI=0/12.
+Saved: seasonal_partial_robustness_results.csv/.mat and LOYO/QC CSVs
+PASS: Stage 06 / H09_Alternative / c_seasonal_partial_robustness.m
+
+RUN: Stage 06 / H08_Final / d_check_partial_uncertainty_dependence.m
+
+===== PARTIAL UNCERTAINTY + ANNUAL RESIDUAL DEPENDENCE QC =====
+24 tests (3 regions x 4 seasons x 2 controls).
+FDR q<0.05: Nino=0/12, DMI=0/12.
+Region   Season  Control  n  df    r_partial   q_FDR  residRain_rho1
+Flores   DJF    Nino34   9    6    +0.079     0.8534     -0.348
+Flores   DJF    DMI      9    6    -0.527     0.5120     -0.433
+Flores   MAM    Nino34  10    7    -0.193     0.8221     +0.282
+Flores   MAM    DMI     10    7    +0.207     0.7800     +0.187
+Flores   JJA    Nino34  10    7    +0.835     0.0840     +0.535
+Flores   JJA    DMI     10    7    +0.698     0.2036     +0.206
+Flores   SON    Nino34   9    6    +0.337     0.7424     +0.141
+Flores   SON    DMI      9    6    -0.115     0.7800     +0.014
+Sumba    DJF    Nino34   9    6    +0.110     0.8534     +0.030
+Sumba    DJF    DMI      9    6    -0.371     0.7800     -0.689
+Sumba    MAM    Nino34  10    7    -0.340     0.7424     +0.208
+Sumba    MAM    DMI     10    7    -0.123     0.7800     +0.256
+Sumba    JJA    Nino34  10    7    +0.821     0.1360     +0.389
+Sumba    JJA    DMI     10    7    +0.665     0.2036     +0.262
+Sumba    SON    Nino34   9    6    +0.103     0.8534     +0.077
+Sumba    SON    DMI      9    6    -0.221     0.7800     +0.031
+Timor    DJF    Nino34   9    6    +0.243     0.8221     -0.498
+Timor    DJF    DMI      9    6    -0.149     0.7800     -0.569
+Timor    MAM    Nino34  10    7    -0.335     0.7424     -0.205
+Timor    MAM    DMI     10    7    +0.170     0.7800     +0.254
+Timor    JJA    Nino34  10    7    +0.741     0.0840     +0.458
+Timor    JJA    DMI     10    7    +0.655     0.2036     +0.354
+Timor    SON    Nino34   9    6    +0.682     0.1887     +0.262
+Timor    SON    DMI      9    6    +0.302     0.7800     +0.065
+Saved: partial_uncertainty_dependence_summary.csv
+       partial_residual_adjacent_year_pairs.csv
+CAUTION: lag-1 residual checks are descriptive; they cannot prove exchangeability.
+Fisher-z 95% intervals are approximate, not multiple-testing adjusted.
+PASS: Stage 06 / H08_Final / d_check_partial_uncertainty_dependence.m
+
+RUN: Stage 06 / H09_Alternative / d_check_partial_uncertainty_dependence.m
+
+===== PARTIAL UNCERTAINTY + ANNUAL RESIDUAL DEPENDENCE QC =====
+24 tests (3 regions x 4 seasons x 2 controls).
+FDR q<0.05: Nino=0/12, DMI=0/12.
+Region   Season  Control  n  df    r_partial   q_FDR  residRain_rho1
+Flores   DJF    Nino34   9    6    +0.079     0.8534     -0.348
+Flores   DJF    DMI      9    6    -0.527     0.5120     -0.433
+Flores   MAM    Nino34  10    7    -0.193     0.8221     +0.282
+Flores   MAM    DMI     10    7    +0.207     0.8226     +0.187
+Flores   JJA    Nino34  10    7    +0.835     0.0840     +0.535
+Flores   JJA    DMI     10    7    +0.698     0.2036     +0.206
+Flores   SON    Nino34   9    6    +0.418     0.6431     +0.141
+Flores   SON    DMI      9    6    +0.016     0.9686     +0.014
+Sumba    DJF    Nino34   9    6    +0.110     0.8534     +0.030
+Sumba    DJF    DMI      9    6    -0.371     0.7347     -0.689
+Sumba    MAM    Nino34  10    7    -0.340     0.6431     +0.208
+Sumba    MAM    DMI     10    7    -0.123     0.8226     +0.256
+Sumba    JJA    Nino34  10    7    +0.821     0.1020     +0.389
+Sumba    JJA    DMI     10    7    +0.665     0.2036     +0.262
+Sumba    SON    Nino34   9    6    +0.160     0.8416     +0.077
+Sumba    SON    DMI      9    6    -0.129     0.8226     +0.031
+Timor    DJF    Nino34   9    6    +0.243     0.8221     -0.498
+Timor    DJF    DMI      9    6    -0.149     0.8226     -0.569
+Timor    MAM    Nino34  10    7    -0.335     0.6431     -0.205
+Timor    MAM    DMI     10    7    +0.170     0.8226     +0.254
+Timor    JJA    Nino34  10    7    +0.741     0.0840     +0.458
+Timor    JJA    DMI     10    7    +0.655     0.2036     +0.354
+Timor    SON    Nino34   9    6    +0.746     0.1020     +0.262
+Timor    SON    DMI      9    6    +0.467     0.5510     +0.065
+Saved: partial_uncertainty_dependence_summary.csv
+       partial_residual_adjacent_year_pairs.csv
+CAUTION: lag-1 residual checks are descriptive; they cannot prove exchangeability.
+Fisher-z 95% intervals are approximate, not multiple-testing adjusted.
+PASS: Stage 06 / H09_Alternative / d_check_partial_uncertainty_dependence.m
+LINEAGE QC PASS: H08 matches original to 1e-8; H09 differs only in 6 SST inputs; all CHIRPS identical.
+
+===== BUILDING CURRENT H08/H09 COMPARISON =====
+COMPARE PASS: 02_Regional_Timeseries/regional_timeseries_raw.csv (120 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_anomalies.csv (120 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_calendar_month_means.csv (12 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_detrending_summary.csv (3 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/monthly_zero_lag_correlation.csv (12 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/autocorrelation_effectiveN.csv (3 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/lagged_correlation_results.csv (39 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_mean_anomalies.csv (114 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_correlation_basic.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_robustness_results.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_LOYO_results.csv (114 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_annual_dependence_QC.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_uncertainty_summary.csv (12 matched rows)
+COMPARE PASS: 05_Spatial_Analysis/spatial_correlation_summary.csv (3 matched rows)
+COMPARE PASS: 05_Spatial_Analysis/spatial_correlation_grid_results.csv (2811 matched rows)
+COMPARE PASS: 06_Climate_Mode_Sensitivity/seasonal_partial_correlation_results.csv (12 matched rows)
+COMPARE PASS: 06_Climate_Mode_Sensitivity/seasonal_partial_robustness_results.csv (12 matched rows)
+COMPARE PASS: 06_Climate_Mode_Sensitivity/seasonal_partial_LOYO_results.csv (228 matched rows)
+COMPARE PASS: 06_Climate_Mode_Sensitivity/partial_uncertainty_dependence_summary.csv (24 matched rows)
+
+===== COMPARISON CREATED =====
+Metric summaries: 171; changed numeric records: 17948; FDR families: 9
+Output: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\04_Comparison
+
+===== PIPELINE FINISHED THROUGH STAGE 06 =====
+Comparison results: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\04_Comparison
+Log: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\05_Run_Logs\run_20261120_094833.txt
+Stage 07a/07b are NOT included; their original SST NetCDF input must be source-switched spatially before a valid H08/H09 comparison.

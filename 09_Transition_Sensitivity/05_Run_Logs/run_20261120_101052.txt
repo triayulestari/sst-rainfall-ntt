@@ -1,0 +1,203 @@
+
+===== CLEAN TRANSITION SENSITIVITY START =====
+Original Data root : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data
+Sensitivity folder : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity
+Maximum stage      : 7
+Delta convention   : H09 - H08
+SKIP completed: 01 / Source overlap
+SKIP 02 / Both raw regional scenarios already exist.
+SKIP completed: Stage 02 / H08_Final / b_compute_regional_anomalies.m
+SKIP completed: Stage 02 / H09_Alternative / b_compute_regional_anomalies.m
+LINEAGE QC PASS: H08 matches original to 1e-8; H09 differs only in 6 SST inputs; all CHIRPS identical.
+SKIP completed: Stage 03 / H08_Final / a_monthly_zero_lag.m
+SKIP completed: Stage 03 / H09_Alternative / a_monthly_zero_lag.m
+SKIP completed: Stage 03 / H08_Final / b_autocorrelation_effective_n.m
+SKIP completed: Stage 03 / H09_Alternative / b_autocorrelation_effective_n.m
+SKIP completed: Stage 03 / H08_Final / c_lagged_correlation.m
+SKIP completed: Stage 03 / H09_Alternative / c_lagged_correlation.m
+SKIP completed: Stage 04 / H08_Final / a_seasonal_mean_anomalies.m
+SKIP completed: Stage 04 / H09_Alternative / a_seasonal_mean_anomalies.m
+SKIP completed: Stage 04 / H08_Final / b_seasonal_correlation.m
+SKIP completed: Stage 04 / H09_Alternative / b_seasonal_correlation.m
+SKIP completed: Stage 04 / H08_Final / c_seasonal_robustness.m
+SKIP completed: Stage 04 / H09_Alternative / c_seasonal_robustness.m
+SKIP completed: Stage 04 / H08_Final / d_check_seasonal_annual_dependence.m
+SKIP completed: Stage 04 / H09_Alternative / d_check_seasonal_annual_dependence.m
+SKIP completed: Stage 04 / H08_Final / e_compile_seasonal_uncertainty.m
+SKIP completed: Stage 04 / H09_Alternative / e_compile_seasonal_uncertainty.m
+SKIP completed: Stage 05 / H08_Final / b_spatial_correlation_fdr.m
+SKIP completed: Stage 05 / H09_Alternative / b_spatial_correlation_fdr.m
+SKIP completed: Stage 06 / H08_Final / a_prepare_climate_indices.m
+SKIP completed: Stage 06 / H09_Alternative / a_prepare_climate_indices.m
+SKIP completed: Stage 06 / H08_Final / b_seasonal_partial_correlation.m
+SKIP completed: Stage 06 / H09_Alternative / b_seasonal_partial_correlation.m
+SKIP completed: Stage 06 / H08_Final / c_seasonal_partial_robustness.m
+SKIP completed: Stage 06 / H09_Alternative / c_seasonal_partial_robustness.m
+SKIP completed: Stage 06 / H08_Final / d_check_partial_uncertainty_dependence.m
+SKIP completed: Stage 06 / H09_Alternative / d_check_partial_uncertainty_dependence.m
+
+RUN: Stage 07 / H08_Final / c_seasonal_detrend_missing2025.m
+
+===== SEASONAL DETREND AND EXCLUDE-2025 QC =====
+Flores JJA: r=0.8569, detrended=0.9184, exclude2025=0.8711
+Sumba JJA: r=0.8382, detrended=0.8872, exclude2025=0.8748
+Timor JJA: r=0.7917, detrended=0.7904, exclude2025=0.8360
+Saved 3 CSVs in E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H08_Final\07_Robustness_Tests
+CAUTION: Sensitivity coefficients do not carry recalculated permutation qFDR.
+PASS: Stage 07 / H08_Final / c_seasonal_detrend_missing2025.m
+
+RUN: Stage 07 / H09_Alternative / c_seasonal_detrend_missing2025.m
+
+===== SEASONAL DETREND AND EXCLUDE-2025 QC =====
+Flores JJA: r=0.8569, detrended=0.9184, exclude2025=0.8711
+Sumba JJA: r=0.8382, detrended=0.8872, exclude2025=0.8748
+Timor JJA: r=0.7917, detrended=0.7904, exclude2025=0.8360
+Saved 3 CSVs in E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H09_Alternative\07_Robustness_Tests
+CAUTION: Sensitivity coefficients do not carry recalculated permutation qFDR.
+PASS: Stage 07 / H09_Alternative / c_seasonal_detrend_missing2025.m
+
+RUN: Stage 07 / H08_Final / d_spatial_coarsegrid_sensitivity.m
+
+============================================================
+SPATIAL COARSE-GRID SENSITIVITY: ~0.05 to ~0.10 degree
+============================================================
+Original regional domains are retained. No interpolation.
+At least 2 valid fine land cells per coarse block.
+
+---- Flores ----
+Fine valid land grid cells : 1158
+Coarse retained cells      : 305
+Fine cells represented     : 1142
+Native SST valid months    : 118
+Coarse r median            : +0.0474
+Coarse within-region FDR   : 19 retained q<0.05
+
+---- Sumba ----
+Fine valid land grid cells : 565
+Coarse retained cells      : 144
+Fine cells represented     : 551
+Native SST valid months    : 118
+Coarse r median            : +0.0231
+Coarse within-region FDR   : 0 retained q<0.05
+
+---- Timor ----
+Fine valid land grid cells : 1088
+Coarse retained cells      : 278
+Fine cells represented     : 1072
+Native SST valid months    : 118
+Coarse r median            : +0.1188
+Coarse within-region FDR   : 0 retained q<0.05
+
+============================================================
+SENSITIVITY SUMMARY: NATIVE ~0.05 vs COARSE ~0.10 degree
+============================================================
+      <strong>Region</strong>      <strong>Fine_grids</strong>    <strong>Coarse_grids</strong>    <strong>Fine_grids_represented</strong>    <strong>Fine_grids_excluded_at_coast</strong>    <strong>Fine_mean_r</strong>    <strong>Coarse_mean_r</strong>    <strong>Fine_median_r</strong>    <strong>Coarse_median_r</strong>    <strong>Fine_positive_pct</strong>    <strong>Coarse_positive_pct</strong>    <strong>Mean_abs_r_diff_vs_local_fine</strong>    <strong>Fine_FDR_region_005</strong>    <strong>Coarse_FDR_region_005</strong>    <strong>Fine_FDR_all_005</strong>    <strong>Coarse_FDR_all_005</strong>
+    <strong>__________</strong>    <strong>__________</strong>    <strong>____________</strong>    <strong>______________________</strong>    <strong>____________________________</strong>    <strong>___________</strong>    <strong>_____________</strong>    <strong>_____________</strong>    <strong>_______________</strong>    <strong>_________________</strong>    <strong>___________________</strong>    <strong>_____________________________</strong>    <strong>___________________</strong>    <strong>_____________________</strong>    <strong>________________</strong>    <strong>__________________</strong>
+
+    {'Flores'}       1158           305                  1142                          16                  0.057978        0.057779         0.049304          0.047442             63.212                62.623                    0.00063196                      78                      19                     0                    0         
+    {'Sumba' }        565           144                   551                          14                  0.029427        0.027748         0.027433          0.023075             66.903                68.056                    0.00040692                       0                       0                     0                    0         
+    {'Timor' }       1088           278                  1072                          16                    0.1055         0.10419          0.11838           0.11879             86.121                85.971                    0.00061883                       0                       0                     0                    0         
+
+
+Combined coarse-grid FDR family: 727 cells.
+Coarse cells with pooled q<0.05: 0.
+
+Outputs created (original results remain unchanged):
+1. spatial_coarse010_summary.csv
+2. spatial_coarse010_grid_results.csv
+3. spatial_coarse010_results.mat
+
+Interpretation: compare r magnitudes, medians and signs; do NOT
+treat separate FDR families or spatial cells as independent samples.
+PASS: Stage 07 / H08_Final / d_spatial_coarsegrid_sensitivity.m
+
+RUN: Stage 07 / H09_Alternative / d_spatial_coarsegrid_sensitivity.m
+
+============================================================
+SPATIAL COARSE-GRID SENSITIVITY: ~0.05 to ~0.10 degree
+============================================================
+Original regional domains are retained. No interpolation.
+At least 2 valid fine land cells per coarse block.
+
+---- Flores ----
+Fine valid land grid cells : 1158
+Coarse retained cells      : 305
+Fine cells represented     : 1142
+Native SST valid months    : 118
+Coarse r median            : +0.0605
+Coarse within-region FDR   : 31 retained q<0.05
+
+---- Sumba ----
+Fine valid land grid cells : 565
+Coarse retained cells      : 144
+Fine cells represented     : 551
+Native SST valid months    : 118
+Coarse r median            : +0.0329
+Coarse within-region FDR   : 0 retained q<0.05
+
+---- Timor ----
+Fine valid land grid cells : 1088
+Coarse retained cells      : 278
+Fine cells represented     : 1072
+Native SST valid months    : 118
+Coarse r median            : +0.1301
+Coarse within-region FDR   : 0 retained q<0.05
+
+============================================================
+SENSITIVITY SUMMARY: NATIVE ~0.05 vs COARSE ~0.10 degree
+============================================================
+      <strong>Region</strong>      <strong>Fine_grids</strong>    <strong>Coarse_grids</strong>    <strong>Fine_grids_represented</strong>    <strong>Fine_grids_excluded_at_coast</strong>    <strong>Fine_mean_r</strong>    <strong>Coarse_mean_r</strong>    <strong>Fine_median_r</strong>    <strong>Coarse_median_r</strong>    <strong>Fine_positive_pct</strong>    <strong>Coarse_positive_pct</strong>    <strong>Mean_abs_r_diff_vs_local_fine</strong>    <strong>Fine_FDR_region_005</strong>    <strong>Coarse_FDR_region_005</strong>    <strong>Fine_FDR_all_005</strong>    <strong>Coarse_FDR_all_005</strong>
+    <strong>__________</strong>    <strong>__________</strong>    <strong>____________</strong>    <strong>______________________</strong>    <strong>____________________________</strong>    <strong>___________</strong>    <strong>_____________</strong>    <strong>_____________</strong>    <strong>_______________</strong>    <strong>_________________</strong>    <strong>___________________</strong>    <strong>_____________________________</strong>    <strong>___________________</strong>    <strong>_____________________</strong>    <strong>________________</strong>    <strong>__________________</strong>
+
+    {'Flores'}       1158           305                  1142                          16                  0.070958        0.070788         0.062507          0.060506              65.63                65.902                    0.00066983                      110                     31                     0                    0         
+    {'Sumba' }        565           144                   551                          14                  0.040682         0.03913         0.036116          0.032914             73.982                72.917                    0.00043077                        0                      0                     0                    0         
+    {'Timor' }       1088           278                  1072                          16                   0.11649         0.11521          0.13028           0.13009             89.706                89.568                    0.00065079                        0                      0                     0                    0         
+
+
+Combined coarse-grid FDR family: 727 cells.
+Coarse cells with pooled q<0.05: 0.
+
+Outputs created (original results remain unchanged):
+1. spatial_coarse010_summary.csv
+2. spatial_coarse010_grid_results.csv
+3. spatial_coarse010_results.mat
+
+Interpretation: compare r magnitudes, medians and signs; do NOT
+treat separate FDR families or spatial cells as independent samples.
+PASS: Stage 07 / H09_Alternative / d_spatial_coarsegrid_sensitivity.m
+LINEAGE QC PASS: H08 matches original to 1e-8; H09 differs only in 6 SST inputs; all CHIRPS identical.
+
+===== BUILDING CURRENT H08/H09 COMPARISON =====
+COMPARE PASS: 02_Regional_Timeseries/regional_timeseries_raw.csv (120 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_anomalies.csv (120 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_calendar_month_means.csv (12 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_detrending_summary.csv (3 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/monthly_zero_lag_correlation.csv (12 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/autocorrelation_effectiveN.csv (3 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/lagged_correlation_results.csv (39 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_mean_anomalies.csv (114 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_correlation_basic.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_robustness_results.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_LOYO_results.csv (114 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_annual_dependence_QC.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_uncertainty_summary.csv (12 matched rows)
+COMPARE PASS: 05_Spatial_Analysis/spatial_correlation_summary.csv (3 matched rows)
+COMPARE PASS: 05_Spatial_Analysis/spatial_correlation_grid_results.csv (2811 matched rows)
+COMPARE PASS: 06_Climate_Mode_Sensitivity/seasonal_partial_correlation_results.csv (12 matched rows)
+COMPARE PASS: 06_Climate_Mode_Sensitivity/seasonal_partial_robustness_results.csv (12 matched rows)
+COMPARE PASS: 06_Climate_Mode_Sensitivity/seasonal_partial_LOYO_results.csv (228 matched rows)
+COMPARE PASS: 06_Climate_Mode_Sensitivity/partial_uncertainty_dependence_summary.csv (24 matched rows)
+COMPARE PASS: 07_Robustness_Tests/seasonal_detrend_sensitivity.csv (12 matched rows)
+COMPARE PASS: 07_Robustness_Tests/seasonal_exclude2025_sensitivity.csv (12 matched rows)
+COMPARE PASS: 07_Robustness_Tests/JJA_rainfall_magnitude.csv (3 matched rows)
+COMPARE PASS: 07_Robustness_Tests/spatial_coarse010_summary.csv (3 matched rows)
+COMPARE PASS: 07_Robustness_Tests/spatial_coarse010_grid_results.csv (727 matched rows)
+
+===== COMPARISON CREATED =====
+Metric summaries: 218; changed numeric records: 24450; FDR families: 13
+Output: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\04_Comparison
+
+===== PIPELINE FINISHED THROUGH STAGE 07 =====
+Comparison results: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\04_Comparison
+Log: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\05_Run_Logs\run_20261120_101052.txt
+Stage 07a/07b are NOT included; their original SST NetCDF input must be source-switched spatially before a valid H08/H09 comparison.

@@ -1,0 +1,14 @@
+Family,Region,N_tests,H08_q005,H09_q005,H08_q010,H09_q010,Changed_decision_005,Changed_decision_010,Max_abs_delta_q
+Lagged_all_39,ALL,39,0,0,0,3,0,3,0.106885176299985
+Lagged_0_to_plus6_21,ALL,21,0,0,6,5,0,1,0.104756173887961
+Seasonal_permutation_12,ALL,12,4,4,5,6,0,1,0.094040595940406
+Spatial_within_region,Flores,1158,78,110,125,150,32,25,0.143168159673913
+Spatial_within_region,Sumba,565,0,0,0,0,0,0,0.00218076298124403
+Spatial_within_region,Timor,1088,0,0,0,0,0,0,0.136684115270703
+Spatial_pooled_all_grids,ALL,2811,0,0,59,98,0,39,0.143853163579236
+Partial_Nino34_12,ALL,12,0,0,2,2,0,0,0.099247218135329
+Partial_DMI_12,ALL,12,0,0,0,0,0,0,0.229037096290371
+Coarse_within_region,Flores,305,19,31,35,37,12,2,0.139012765936643
+Coarse_within_region,Sumba,144,0,0,0,0,0,0,0.00757653774576195
+Coarse_within_region,Timor,278,0,0,0,0,0,0,0.120052909012125
+Coarse_pooled_all,ALL,727,0,0,15,22,0,7,0.136410663012102

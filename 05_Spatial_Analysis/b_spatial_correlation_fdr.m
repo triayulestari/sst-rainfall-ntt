@@ -272,19 +272,25 @@ save(fullfile(out_dir,'spatial_correlation_results.mat'), ...
     'q_global_map_F','q_global_map_S','q_global_map_T', ...
     'SummaryTable','GridTable','-v7');
 
-%% 7. Final numerical QC, with previous results as CHECK (not hardcoded output)
+%% 7. Final QC: internal consistency, without hard-coded FDR outcomes
 fprintf('\n===== SPATIAL CORRELATION FDR QC =====\n');
-fprintf('BH-FDR within 3 regions; pooled family = %d valid grids.\n',m_all);
+fprintf('BH-FDR within 3 regions; pooled family = %d region-grid tests.\n',m_all);
 for ir=1:3
     fprintf('%-6s: grids=%4d, median r=%+.4f, per-region q<0.05=%3d, pooled q<0.05=%3d\n', ...
         regions{ir},Valid_grids(ir),r_median(ir), ...
         N_FDR_region_lt_0_05(ir),N_FDR_pooled_lt_0_05(ir));
 end
-if m_all~=2811 || ~isequal(N_FDR_region_lt_0_05,[110;0;0]) || ...
-        any(N_FDR_pooled_lt_0_05~=0)
-    warning(['Differences relative to previous spatial results. ', ...
-        'Verify full grid CSV, source data, effective-N calculation, ', ...
-        'and regional boxes before changing the manuscript.']);
+if m_all ~= sum(Valid_grids) || height(GridTable) ~= m_all
+    error('Pooled test count disagrees with per-region counts or GridTable.');
+end
+if any(N_FDR_region_lt_0_05 > N_padj_lt_0_05) || ...
+        any(N_FDR_pooled_lt_0_05 > N_padj_lt_0_05)
+    error('FDR detections cannot exceed the corresponding adjusted-p detections.');
+end
+reference_grid_counts = [1158;565;1088];
+if ~isequal(Valid_grids,reference_grid_counts)
+    warning(['Valid-grid counts differ from the archived grid inventory. ', ...
+        'Check CHIRPS inputs, regional boxes and fixed masks.']);
 end
 fprintf('Saved: spatial_correlation_results.mat, spatial_correlation_summary.csv, spatial_correlation_grid_results.csv\n');
-fprintf('IMPORTANT: Within-region dots do not survive pooled correction if all pooled counts are zero.\n');
+fprintf('Report the BH-FDR family explicitly: per-region or pooled.\n');

@@ -1,0 +1,334 @@
+
+===== CLEAN TRANSITION SENSITIVITY START =====
+Original Data root : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data
+Sensitivity folder : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity
+Maximum stage      : 4
+Delta convention   : H09 - H08
+SKIP completed: 01 / Source overlap
+
+RUN 02 / Prepare H08_Final and H09_Alternative raw inputs
+
+===== TWO REGIONAL SCENARIOS PREPARED =====
+H08 baseline  : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H08_Final\02_Regional_Timeseries
+H09 alternate : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H09_Alternative\02_Regional_Timeseries
+Changed SST inputs: 6 region-months (October-November 2022 only).
+Other SST months: identical. CHIRPS: identical.
+NEXT: Run the ORIGINAL Stage 03 onward on each scenario in separate folders. The prepared Stage 02 MAT/CSV is not itself a new correlation or FDR result.
+
+RUN: Stage 02 / H08_Final / b_compute_regional_anomalies.m
+
+===== ANOMALY CALCULATION QC =====
+Period: Jan 2016 to Dec 2025 (120 calendar positions)
+Flores: pairs=118, raw r=+0.5680, overall-anomaly r=+0.5680, deseason r=+0.0756
+Sumba: pairs=118, raw r=+0.7179, overall-anomaly r=+0.7179, deseason r=+0.0392
+Timor: pairs=118, raw r=+0.7163, overall-anomaly r=+0.7163, deseason r=+0.1224
+SST Oct/Nov 2025 samples per calendar month: n=9.
+Other SST calendar months: n=10; all CHIRPS months: n=10.
+
+Saved in: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H08_Final\02_Regional_Timeseries
+  regional_calendar_month_means.csv
+  regional_anomalies.csv
+  regional_detrending_summary.csv
+  regional_anomalies.mat
+DONE. Original raw files were NOT modified.
+PASS: Stage 02 / H08_Final / b_compute_regional_anomalies.m
+
+RUN: Stage 02 / H09_Alternative / b_compute_regional_anomalies.m
+
+===== ANOMALY CALCULATION QC =====
+Period: Jan 2016 to Dec 2025 (120 calendar positions)
+Flores: pairs=118, raw r=+0.5677, overall-anomaly r=+0.5677, deseason r=+0.0909
+Sumba: pairs=118, raw r=+0.7193, overall-anomaly r=+0.7193, deseason r=+0.0516
+Timor: pairs=118, raw r=+0.7162, overall-anomaly r=+0.7162, deseason r=+0.1348
+SST Oct/Nov 2025 samples per calendar month: n=9.
+Other SST calendar months: n=10; all CHIRPS months: n=10.
+
+Saved in: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H09_Alternative\02_Regional_Timeseries
+  regional_calendar_month_means.csv
+  regional_anomalies.csv
+  regional_detrending_summary.csv
+  regional_anomalies.mat
+DONE. Original raw files were NOT modified.
+PASS: Stage 02 / H09_Alternative / b_compute_regional_anomalies.m
+LINEAGE QC PASS: H08 matches original to 1e-8; H09 differs only in 6 SST inputs; all CHIRPS identical.
+
+RUN: Stage 03 / H08_Final / a_monthly_zero_lag.m
+
+===== MONTHLY ZERO-LAG QC | 2016-2025 =====
+Source: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H08_Final\02_Regional_Timeseries\regional_anomalies.mat
+All region-series pairs should have n = 118.
+
+Region       N      r(raw)   r(deseason)  r(detrended)
+Flores     118     +0.5680       +0.0756       +0.0871
+Sumba      118     +0.7179       +0.0392       +0.0593
+Timor      118     +0.7163       +0.1224       +0.1394
+
+Saved: monthly_zero_lag_correlation.csv/.mat
+Ordinary p-values are NOT autocorrelation-adjusted.
+PASS: Stage 03 / H08_Final / a_monthly_zero_lag.m
+
+RUN: Stage 03 / H09_Alternative / a_monthly_zero_lag.m
+
+===== MONTHLY ZERO-LAG QC | 2016-2025 =====
+Source: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H09_Alternative\02_Regional_Timeseries\regional_anomalies.mat
+All region-series pairs should have n = 118.
+
+Region       N      r(raw)   r(deseason)  r(detrended)
+Flores     118     +0.5677       +0.0909       +0.1017
+Sumba      118     +0.7193       +0.0516       +0.0711
+Timor      118     +0.7162       +0.1348       +0.1508
+
+Saved: monthly_zero_lag_correlation.csv/.mat
+Ordinary p-values are NOT autocorrelation-adjusted.
+PASS: Stage 03 / H09_Alternative / a_monthly_zero_lag.m
+
+RUN: Stage 03 / H08_Final / b_autocorrelation_effective_n.m
+
+===== ZERO-LAG AUTOCORRELATION / EFFECTIVE-N QC =====
+Region       r        N        Neff      rhoSST     rhoRain    p_adjusted
+Flores    +0.0756   118       97.17     +0.5182    +0.1869      0.4611
+Sumba     +0.0392   118      102.17     +0.6090    +0.1181      0.6951
+Timor     +0.1224   118      105.54     +0.5479    +0.1017      0.2124
+Saved: autocorrelation_effectiveN.csv/.mat
+No missing SST months are bridged when calculating lag-1.
+PASS: Stage 03 / H08_Final / b_autocorrelation_effective_n.m
+
+RUN: Stage 03 / H09_Alternative / b_autocorrelation_effective_n.m
+
+===== ZERO-LAG AUTOCORRELATION / EFFECTIVE-N QC =====
+Region       r        N        Neff      rhoSST     rhoRain    p_adjusted
+Flores    +0.0909   118       96.86     +0.5264    +0.1869      0.3763
+Sumba     +0.0516   118      102.08     +0.6126    +0.1181      0.6061
+Timor     +0.1348   118      105.47     +0.5515    +0.1017      0.1695
+Saved: autocorrelation_effectiveN.csv/.mat
+No missing SST months are bridged when calculating lag-1.
+PASS: Stage 03 / H09_Alternative / b_autocorrelation_effective_n.m
+
+RUN: Stage 03 / H08_Final / c_lagged_correlation.m
+
+===== MONTHLY LAG CORRELATION QC =====
+Lags: -6 to +6 | 3 regions | primary BH-FDR: 39 tests
+Secondary BH-FDR: 21 tests (lag 0 through +6)
+Flores: +lag strongest adjusted-p = +4 months; r=+0.2882; p=0.0043; q39=0.1026
+Sumba : +lag strongest adjusted-p = +2 months; r=+0.1840; p=0.0626; q39=0.2713
+Timor : +lag strongest adjusted-p = +4 months; r=+0.2557; p=0.0095; q39=0.1026
+Tests with q39<0.05: 0
+Tests with 0.05<=q39<0.10: 0
+Saved: lagged_correlation_results.csv/.mat
+Positive lag means SST LEADS rainfall; NOT causation.
+PASS: Stage 03 / H08_Final / c_lagged_correlation.m
+
+RUN: Stage 03 / H09_Alternative / c_lagged_correlation.m
+
+===== MONTHLY LAG CORRELATION QC =====
+Lags: -6 to +6 | 3 regions | primary BH-FDR: 39 tests
+Secondary BH-FDR: 21 tests (lag 0 through +6)
+Flores: +lag strongest adjusted-p = +4 months; r=+0.3001; p=0.0029; q39=0.0974
+Sumba : +lag strongest adjusted-p = +2 months; r=+0.1742; p=0.0782; q39=0.3388
+Timor : +lag strongest adjusted-p = +4 months; r=+0.2644; p=0.0073; q39=0.0974
+Tests with q39<0.05: 0
+Tests with 0.05<=q39<0.10: 3
+Saved: lagged_correlation_results.csv/.mat
+Positive lag means SST LEADS rainfall; NOT causation.
+PASS: Stage 03 / H09_Alternative / c_lagged_correlation.m
+
+RUN: Stage 04 / H08_Final / a_seasonal_mean_anomalies.m
+
+===== SEASONAL MEAN ANOMALIES QC =====
+Source: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H08_Final\02_Regional_Timeseries\regional_anomalies.mat
+Season   Years        Paired seasons (Flores/Sumba/Timor)
+DJF      2017-2025       9 / 9 / 9
+MAM      2016-2025       10 / 10 / 10
+JJA      2016-2025       10 / 10 / 10
+SON      2016-2024       9 / 9 / 9
+SON 2025 excluded; Oct-Nov 2025 SST remains missing.
+No interpolation; three complete months required per season.
+Saved: seasonal_mean_anomalies.csv/.mat
+PASS: Stage 04 / H08_Final / a_seasonal_mean_anomalies.m
+
+RUN: Stage 04 / H09_Alternative / a_seasonal_mean_anomalies.m
+
+===== SEASONAL MEAN ANOMALIES QC =====
+Source: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H09_Alternative\02_Regional_Timeseries\regional_anomalies.mat
+Season   Years        Paired seasons (Flores/Sumba/Timor)
+DJF      2017-2025       9 / 9 / 9
+MAM      2016-2025       10 / 10 / 10
+JJA      2016-2025       10 / 10 / 10
+SON      2016-2024       9 / 9 / 9
+SON 2025 excluded; Oct-Nov 2025 SST remains missing.
+No interpolation; three complete months required per season.
+Saved: seasonal_mean_anomalies.csv/.mat
+PASS: Stage 04 / H09_Alternative / a_seasonal_mean_anomalies.m
+
+RUN: Stage 04 / H08_Final / b_seasonal_correlation.m
+
+===== BASIC SEASONAL CORRELATION QC =====
+Region     Season    N       r         p_parametric
+Flores     DJF      9    -0.7115      0.0316
+Flores     MAM     10    +0.0627      0.8633
+Flores     JJA     10    +0.8569      0.0015
+Flores     SON      9    +0.6284      0.0699
+Sumba      DJF      9    -0.5448      0.1294
+Sumba      MAM     10    -0.2615      0.4655
+Sumba      JJA     10    +0.8382      0.0025
+Sumba      SON      9    +0.4176      0.2634
+Timor      DJF      9    -0.1026      0.7928
+Timor      MAM     10    -0.1651      0.6485
+Timor      JJA     10    +0.7917      0.0064
+Timor      SON      9    +0.8149      0.0075
+Saved: seasonal_correlation_basic.csv/.mat
+Do not infer statistical significance before c_seasonal_robustness.m.
+PASS: Stage 04 / H08_Final / b_seasonal_correlation.m
+
+RUN: Stage 04 / H09_Alternative / b_seasonal_correlation.m
+
+===== BASIC SEASONAL CORRELATION QC =====
+Region     Season    N       r         p_parametric
+Flores     DJF      9    -0.7115      0.0316
+Flores     MAM     10    +0.0627      0.8633
+Flores     JJA     10    +0.8569      0.0015
+Flores     SON      9    +0.6868      0.0410
+Sumba      DJF      9    -0.5448      0.1294
+Sumba      MAM     10    -0.2615      0.4655
+Sumba      JJA     10    +0.8382      0.0025
+Sumba      SON      9    +0.4665      0.2056
+Timor      DJF      9    -0.1026      0.7928
+Timor      MAM     10    -0.1651      0.6485
+Timor      JJA     10    +0.7917      0.0064
+Timor      SON      9    +0.8551      0.0033
+Saved: seasonal_correlation_basic.csv/.mat
+Do not infer statistical significance before c_seasonal_robustness.m.
+PASS: Stage 04 / H09_Alternative / b_seasonal_correlation.m
+
+RUN: Stage 04 / H08_Final / c_seasonal_robustness.m
+
+===== SEASONAL ROBUSTNESS QC =====
+10,000 two-sided permutations; rng(2026,'twister').
+Primary BH-FDR family: 12 region-season comparisons.
+Region     Season  N      r       p_perm    q_FDR    LOYO min/max
+Flores     DJF     9   -0.7115    0.0263    0.0631    [-0.822,-0.499]
+Flores     MAM    10   +0.0627    0.8673    0.8673    [-0.045,+0.215]
+Flores     JJA    10   +0.8569    0.0013    0.0156    [+0.649,+0.895]
+Flores     SON     9   +0.6284    0.0667    0.1334    [+0.480,+0.697]
+Sumba      DJF     9   -0.5448    0.1261    0.2161    [-0.724,-0.282]
+Sumba      MAM    10   -0.2615    0.4724    0.6298    [-0.360,+0.045]
+Sumba      JJA    10   +0.8382    0.0047    0.0188    [+0.501,+0.882]
+Sumba      SON     9   +0.4176    0.2691    0.4036    [+0.167,+0.589]
+Timor      DJF     9   -0.1026    0.7765    0.8471    [-0.527,+0.251]
+Timor      MAM    10   -0.1651    0.6347    0.7617    [-0.246,-0.010]
+Timor      JJA    10   +0.7917    0.0043    0.0188    [+0.710,+0.853]
+Timor      SON     9   +0.8149    0.0073    0.0219    [+0.680,+0.892]
+FDR-retained q<0.05: 4 tests
+Suggestive 0.05<=q<0.10: 1 tests
+Saved: seasonal_robustness_results.csv/.mat and seasonal_LOYO_results.csv
+Caution: 9-10 years; year permutations assume exchangeability.
+PASS: Stage 04 / H08_Final / c_seasonal_robustness.m
+
+RUN: Stage 04 / H09_Alternative / c_seasonal_robustness.m
+
+===== SEASONAL ROBUSTNESS QC =====
+10,000 two-sided permutations; rng(2026,'twister').
+Primary BH-FDR family: 12 region-season comparisons.
+Region     Season  N      r       p_perm    q_FDR    LOYO min/max
+Flores     DJF     9   -0.7115    0.0263    0.0631    [-0.822,-0.499]
+Flores     MAM    10   +0.0627    0.8673    0.8673    [-0.045,+0.215]
+Flores     JJA    10   +0.8569    0.0013    0.0141    [+0.649,+0.895]
+Flores     SON     9   +0.6868    0.0389    0.0778    [+0.571,+0.751]
+Sumba      DJF     9   -0.5448    0.1261    0.2161    [-0.724,-0.282]
+Sumba      MAM    10   -0.2615    0.4724    0.6298    [-0.360,+0.045]
+Sumba      JJA    10   +0.8382    0.0047    0.0141    [+0.501,+0.882]
+Sumba      SON     9   +0.4665    0.2064    0.3096    [+0.243,+0.627]
+Timor      DJF     9   -0.1026    0.7765    0.8471    [-0.527,+0.251]
+Timor      MAM    10   -0.1651    0.6347    0.7617    [-0.246,-0.010]
+Timor      JJA    10   +0.7917    0.0043    0.0141    [+0.710,+0.853]
+Timor      SON     9   +0.8551    0.0038    0.0141    [+0.754,+0.922]
+FDR-retained q<0.05: 4 tests
+Suggestive 0.05<=q<0.10: 2 tests
+Saved: seasonal_robustness_results.csv/.mat and seasonal_LOYO_results.csv
+Caution: 9-10 years; year permutations assume exchangeability.
+PASS: Stage 04 / H09_Alternative / c_seasonal_robustness.m
+
+RUN: Stage 04 / H08_Final / d_check_seasonal_annual_dependence.m
+
+===== SEASONAL ANNUAL DEPENDENCE QC =====
+Region   Season   n  Adjacent pairs    SST rho1    Rain rho1
+Flores   DJF      9         8          +0.0725      -0.3418
+Flores   MAM     10         9          -0.2241      +0.1064
+Flores   JJA     10         9          +0.1156      +0.3493
+Flores   SON      9         8          +0.1484      +0.1806
+Sumba    DJF      9         8          +0.0529      -0.6924
+Sumba    MAM     10         9          -0.3047      +0.1518
+Sumba    JJA     10         9          +0.0419      +0.2720
+Sumba    SON      9         8          +0.1161      +0.1629
+Timor    DJF      9         8          +0.4346      -0.4685
+Timor    MAM     10         9          -0.2884      -0.2355
+Timor    JJA     10         9          +0.1675      +0.3476
+Timor    SON      9         8          +0.1012      +0.0338
+Saved: seasonal_annual_dependence_QC.csv/.mat and seasonal_adjacent_year_pairs.csv
+CAUTION: only 8-9 adjacent year pairs; this is descriptive.
+This diagnostic does NOT prove exchangeability or re-test p/qFDR.
+PASS: Stage 04 / H08_Final / d_check_seasonal_annual_dependence.m
+
+RUN: Stage 04 / H09_Alternative / d_check_seasonal_annual_dependence.m
+
+===== SEASONAL ANNUAL DEPENDENCE QC =====
+Region   Season   n  Adjacent pairs    SST rho1    Rain rho1
+Flores   DJF      9         8          +0.0725      -0.3418
+Flores   MAM     10         9          -0.2241      +0.1064
+Flores   JJA     10         9          +0.1156      +0.3493
+Flores   SON      9         8          +0.1272      +0.1806
+Sumba    DJF      9         8          +0.0529      -0.6924
+Sumba    MAM     10         9          -0.3047      +0.1518
+Sumba    JJA     10         9          +0.0419      +0.2720
+Sumba    SON      9         8          +0.0929      +0.1629
+Timor    DJF      9         8          +0.4346      -0.4685
+Timor    MAM     10         9          -0.2884      -0.2355
+Timor    JJA     10         9          +0.1675      +0.3476
+Timor    SON      9         8          +0.0787      +0.0338
+Saved: seasonal_annual_dependence_QC.csv/.mat and seasonal_adjacent_year_pairs.csv
+CAUTION: only 8-9 adjacent year pairs; this is descriptive.
+This diagnostic does NOT prove exchangeability or re-test p/qFDR.
+PASS: Stage 04 / H09_Alternative / d_check_seasonal_annual_dependence.m
+
+RUN: Stage 04 / H08_Final / e_compile_seasonal_uncertainty.m
+
+===== SEASONAL UNCERTAINTY SUMMARY QC =====
+Tests=12; FDR q<0.05=4; 0.05<=q<0.10=1
+Saved: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H08_Final\04_Seasonal_Analysis\seasonal_uncertainty_summary.csv
+Note: Fisher-z 95% intervals are approximate and NOT multiple-testing adjusted or serial-dependence corrected.
+Yearwise permutations do not preserve potential interannual persistence.
+PASS: Stage 04 / H08_Final / e_compile_seasonal_uncertainty.m
+
+RUN: Stage 04 / H09_Alternative / e_compile_seasonal_uncertainty.m
+
+===== SEASONAL UNCERTAINTY SUMMARY QC =====
+Tests=12; FDR q<0.05=4; 0.05<=q<0.10=2
+Saved: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H09_Alternative\04_Seasonal_Analysis\seasonal_uncertainty_summary.csv
+Note: Fisher-z 95% intervals are approximate and NOT multiple-testing adjusted or serial-dependence corrected.
+Yearwise permutations do not preserve potential interannual persistence.
+PASS: Stage 04 / H09_Alternative / e_compile_seasonal_uncertainty.m
+LINEAGE QC PASS: H08 matches original to 1e-8; H09 differs only in 6 SST inputs; all CHIRPS identical.
+
+===== BUILDING CURRENT H08/H09 COMPARISON =====
+COMPARE PASS: 02_Regional_Timeseries/regional_timeseries_raw.csv (120 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_anomalies.csv (120 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_calendar_month_means.csv (12 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_detrending_summary.csv (3 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/monthly_zero_lag_correlation.csv (12 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/autocorrelation_effectiveN.csv (3 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/lagged_correlation_results.csv (39 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_mean_anomalies.csv (114 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_correlation_basic.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_robustness_results.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_LOYO_results.csv (114 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_annual_dependence_QC.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_uncertainty_summary.csv (12 matched rows)
+
+===== COMPARISON CREATED =====
+Metric summaries: 105; changed numeric records: 1200; FDR families: 3
+Output: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\04_Comparison
+
+===== PIPELINE FINISHED THROUGH STAGE 04 =====
+Comparison results: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\04_Comparison
+Log: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\05_Run_Logs\run_20261120_084333.txt
+Stage 07a/07b are NOT included; their original SST NetCDF input must be source-switched spatially before a valid H08/H09 comparison.

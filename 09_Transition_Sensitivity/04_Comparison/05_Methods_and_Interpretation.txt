@@ -1,0 +1,19 @@
+CONTROLLED H08/H09 OCT-NOV 2022 SST SOURCE TRANSITION
+Comparison generated from CURRENT 03_Scenarios outputs only.
+Delta convention: H09 alternative minus H08 final.
+maxStage completed: 7. Stage 02 includes regional anomalies.
+H08 original baseline is checked by run_H08_H09_clean.m (tolerance 1e-8).
+H09 differs from H08 ONLY in six regional SST inputs (Oct-Nov 2022).
+CHIRPS and climate indices are identical across scenarios.
+Original Stage 03-07 scripts and FDR test families are unchanged.
+All comparisons align rows by explicit scientific keys.
+Numeric comparison tolerance for changed detail: 1e-12.
+Spatial coordinates compared with tolerance 1e-4 degrees.
+02_Metric_Delta_Detail_Changed_Only.csv contains only changed values.
+A missing FDR family due to maxStage means NOT RUN, not zero significance.
+Stage 07a and 07b NOT tested: require source-specific cropped SST NetCDF.
+Grid cells are spatially dependent; their FDR counts are not replicates.
+Fisher-z intervals are approximate; year permutations do not preserve persistence.
+Source platform and product processing version differ simultaneously.
+This is source-transition sensitivity, not validation of absolute SST accuracy.
+N_comparison_metrics=218; N_changed_numeric_values=24450; FDR_families=13.

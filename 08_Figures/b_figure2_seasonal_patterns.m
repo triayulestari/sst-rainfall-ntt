@@ -183,7 +183,7 @@ x = datenum(time);
 year_ticks = [2016 2018 2020 2022 2024 2025];
 x_year_ticks = datenum(year_ticks,1,1);
 year_labels = arrayfun(@(v) sprintf('%d',v),year_ticks,'UniformOutput',false);
-right_x_limits = [datenum(2016,1,1),datenum(2025,12,31)];
+right_x_limits = [datenum(2016,1,1),datenum(2026,2,1)];
 
 %% 7. Panel (c): monthly DESEASONALIZED SST anomalies, NOT detrended
 hC = gobjects(1,3);
@@ -210,7 +210,7 @@ gap_end = datenum(2025,12,1);
 h_gap = patch(axC,[gap_start gap_end gap_end gap_start], ...
                    [-ylim_c -ylim_c ylim_c ylim_c], ...
                    [0.91 0.91 0.91], ...
-                   'FaceAlpha',1.0,'EdgeColor','none', ...
+                   'FaceAlpha',0.20,'EdgeColor','none', ...
                    'HandleVisibility','off');
 uistack(h_gap,'bottom');
 

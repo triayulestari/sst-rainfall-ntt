@@ -1,0 +1,4 @@
+Region,Rectangle_cells,Valid_all_120_months,Min_monthly_valid,Max_monthly_valid,Max_abs_regional_mean_diff_mm,Max_abs_deseason_residual_mm
+Flores,2576,1158,1158,1158,0,4.54747350886464e-14
+Sumba,1400,565,565,565,0,4.54747350886464e-14
+Timor,2352,1088,1088,1088,0,4.54747350886464e-14

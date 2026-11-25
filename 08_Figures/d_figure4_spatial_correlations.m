@@ -6,8 +6,11 @@
 % Data: regional deseasonalized SST vs each CHIRPS rainfall grid (zero lag).
 % Read saved Stage 05 Pearson r and qFDR. NO statistical recalculation.
 % M_Map Mercator + GSHHS coastlines, as in Figure 1.
-% Exactly 110 individual dots in Flores (within-region qFDR<0.05).
-% Pooled BH-FDR across 2,811 grids: NO significant cells.
+% Each dot represents one CHIRPS grid retained by within-region BH-FDR.
+% Regional and pooled FDR results are read from Stage 05, never hard-coded.
+% Input paths are resolved relative to the project folder for GitHub reuse.
+% If the Stage 05 MAT file is absent, the two spatial CSVs are sufficient.
+% Dependencies: MATLAB R2021a, M_Map and GSHHS high-resolution coastline.
 %
 % SAVE IN Data/08_Figures/ and run: d_figure4_spatial_correlations
 %% ========================================================================
@@ -20,12 +23,24 @@ outDir = fileparts(scriptName);
 rootDir = fileparts(outDir);
 fMat = fullfile(rootDir,'05_Spatial_Analysis','spatial_correlation_results.mat');
 fCsv = fullfile(rootDir,'05_Spatial_Analysis','spatial_correlation_summary.csv');
-assert(isfile(fMat),'Missing input MAT: %s',fMat);
+fGrid = fullfile(rootDir,'05_Spatial_Analysis','spatial_correlation_grid_results.csv');
+fMask = fullfile(rootDir,'05_Spatial_Analysis','spatial_valid_grid_mask.csv');
 assert(isfile(fCsv),'Missing input CSV: %s',fCsv);
 assert(exist('m_proj','file')==2 && exist('m_pcolor','file')==2 && ...
        exist('m_grid','file')==2 && exist('m_gshhs_h','file')==2 && ...
        exist('m_line','file')==2, 'M_Map/GSHHS is missing from MATLAB path.');
-M = load(fMat);
+if isfile(fMat)
+    M = load(fMat);
+    sourceInfo = '05_Spatial_Analysis/spatial_correlation_results.mat';
+    fprintf('Figure 4 input: saved Stage 05 MAT fields.\n');
+else
+    assert(isfile(fGrid) && isfile(fMask), ...
+        'Missing MAT and CSV alternatives: %s and %s',fGrid,fMask);
+    M = buildSpatialFieldsFromCSVs(fGrid,fMask);
+    sourceInfo = ['05_Spatial_Analysis/spatial_correlation_grid_results.csv ' ...
+                  '+ spatial_valid_grid_mask.csv'];
+    fprintf('Figure 4 input: Stage 05 grid and mask CSVs (MAT unavailable).\n');
+end
 S = readtable(fCsv);
 
 % [lonmin lonmax latmin latmax], MATCH Figure 1 CHIRPS boxes
@@ -92,8 +107,8 @@ for k = 1:3
         names{k},D(k).n,D(k).nSig,D(k).nPooled);
 end
 assert(isequal([D.n],[1158 565 1088]),'Unexpected grid counts.');
-assert(isequal([D.nSig],[110 0 0]),'Unexpected regional qFDR results.');
-assert(sum([D.nPooled])==0,'Expected zero pooled-significant cells.');
+% Significance counts are already cross-checked against the Stage 05 CSV.
+% Do not assert fixed significance counts: they can change after data updates.
 
 %% 3. Higher-contrast diverging colormap, still centered at REAL r = 0
 % All r values are unchanged and colorbar is numeric -0.4...+0.4.
@@ -190,6 +205,8 @@ for k=1:3
         'FontWeight','bold','HorizontalAlignment','left', ...
         'VerticalAlignment','top','BackgroundColor','white','Margin',1);
 end
+assert(isequal([D.nDots],[D.nSig]), ...
+    'Not all within-region significant grid centers were plotted.');
 
 %% 6. Shared map colorbar
 cb=colorbar(axT,'eastoutside');
@@ -225,9 +242,18 @@ for k=1:3
 end
 
 %% 8. Statistical disclaimer
+pooledCount=sum([D.nPooled]);
+if pooledCount==0
+    pooledNote=sprintf('Pooled BH-FDR across all %d grids: NO significant grid.', ...
+        sum([D.n]));
+else
+    pooledNote=sprintf('Pooled BH-FDR across all %d grids: %d significant grid(s).', ...
+        sum([D.n]),pooledCount);
+end
 annotation(fig,'textbox',posNote,'String',{ ...
-    'Black dots: within-region BH-FDR q < 0.05 (Flores: 110 of 1,158 CHIRPS grids).', ...
-    'Pooled BH-FDR across all 2,811 grids: NO significant grid.'}, ...
+    sprintf('Black dots: within-region BH-FDR q < 0.05 (Flores: %d of %d CHIRPS grids).', ...
+            D(1).nSig,D(1).n), ...
+    pooledNote}, ...
     'FontName',fontName,'FontSize',fs-1,'Interpreter','none', ...
     'HorizontalAlignment','center','VerticalAlignment','middle', ...
     'EdgeColor','none','Color',[.15 .15 .15],'FitBoxToText','off');
@@ -267,16 +293,21 @@ writetable(Q,fullfile(outDir,'Figure_4_Visual_QC.csv'));
 fid=fopen(fullfile(outDir,'Figure_4_Methods_Metadata.txt'),'w');
 assert(fid~=-1,'Unable to write metadata.');
 fprintf(fid,'FIGURE 4 | CLEAN LATITUDES / HIGHER-CONTRAST COLOR\n');
-fprintf(fid,'Data: %s\nSummary: %s\n',fMat,fCsv);
+% Use repository-relative paths rather than private Windows drive paths.
+fprintf(fid,'Data: %s\n',sourceInfo);
+fprintf(fid,'Summary: 05_Spatial_Analysis/spatial_correlation_summary.csv\n');
 fprintf(fid,'M_Map Mercator + GSHHS high-resolution coastline.\n');
 fprintf(fid,'Exact CHIRPS Figure 1 coordinate boxes, no context expansion.\n');
 fprintf(fid,'M_Map latitude tickstyle=dd with exact custom degree-S labels.\n');
 fprintf(fid,'Colorbar: true r values; zero-centered [-0.4,+0.4].\n');
 fprintf(fid,'Contrast-enhanced diverging RGB stops at -0.2,-0.1,0,0.1,0.2.\n');
 fprintf(fid,'No changes to r maps, grid masks, p values, or qFDR.\n');
-fprintf(fid,'Flores=110/1158; Sumba=0/565; Timor=0/1088 within-region q<0.05.\n');
-fprintf(fid,'Pooled BH-FDR (2811 grids): 0 significant.\n');
-fprintf(fid,'All 110 Flores grid centers displayed; no spatial interpolation.\n');
+fprintf(fid,'Flores=%d/%d; Sumba=%d/%d; Timor=%d/%d within-region q<0.05.\n', ...
+    D(1).nSig,D(1).n,D(2).nSig,D(2).n,D(3).nSig,D(3).n);
+fprintf(fid,'Pooled BH-FDR (%d grids): %d significant.\n', ...
+    sum([D.n]),sum([D.nPooled]));
+fprintf(fid,'All %d Flores significant grid centers displayed; no spatial interpolation.\n', ...
+    D(1).nDots);
 fprintf(fid,'Colored data clipped to original valid CHIRPS land masks.\n');
 fprintf(fid,'PDF uses high-resolution raster to avoid GSHHS vector warnings.\n');
 fclose(fid);
@@ -287,3 +318,80 @@ fprintf('Within-region dots: [%d %d %d]; pooled: %d / %d\n', ...
 fprintf('PNG: %s\nPDF: %s\nGrayscale QC: %s\n', ...
     pngPath,pdfPath,grayPath);
 fprintf('Latitude labels: degrees South, no minutes notation.\n');
+
+%% Local functions: optional reproducible CSV input for GitHub
+function M = buildSpatialFieldsFromCSVs(gridFile,maskFile)
+% Rebuild the SAVED Stage 05 fields from the exported grid-wise CSVs.
+% This is only a reshape to native grid coordinates, not an interpolation,
+% statistical recalculation, or replacement of missing values.
+    G = readtable(gridFile);
+    A = readtable(maskFile);
+    gridCols = {'Region','Longitude','Latitude','Pearson_r', ...
+                'q_FDR_region','q_FDR_all_grids'};
+    maskCols = {'Region','Longitude_WGS84','Latitude_WGS84', ...
+                'Valid_all_120_months'};
+    assert(all(ismember(gridCols,G.Properties.VariableNames)), ...
+        'Missing required columns in spatial grid CSV.');
+    assert(all(ismember(maskCols,A.Properties.VariableNames)), ...
+        'Missing required columns in spatial mask CSV.');
+
+    regionNames = {'Flores','Sumba','Timor'};
+    regionTags = {'F','S','T'};
+    M = struct();
+    for k = 1:numel(regionNames)
+        rowsA = strcmpi(strtrim(string(A.Region)),regionNames{k});
+        rowsG = strcmpi(strtrim(string(G.Region)),regionNames{k});
+        a = A(rowsA,:);
+        g = G(rowsG,:);
+        assert(~isempty(a) && ~isempty(g), ...
+            'Missing spatial CSV rows for %s.',regionNames{k});
+        lon = unique(double(a.Longitude_WGS84));
+        lat = unique(double(a.Latitude_WGS84));
+        sz = [numel(lon) numel(lat)];
+
+        [ia,ja] = localGridIndices(double(a.Longitude_WGS84), ...
+            double(a.Latitude_WGS84),lon,lat,regionNames{k});
+        indexA = sub2ind(sz,ia,ja);
+        assert(numel(unique(indexA))==numel(indexA) && ...
+               numel(indexA)==prod(sz), ...
+            'Mask CSV must contain each rectangular grid cell exactly once (%s).', ...
+            regionNames{k});
+        mask = false(sz);
+        mask(indexA) = logical(a.Valid_all_120_months);
+
+        [ig,jg] = localGridIndices(double(g.Longitude), ...
+            double(g.Latitude),lon,lat,regionNames{k});
+        indexG = sub2ind(sz,ig,jg);
+        assert(numel(unique(indexG))==numel(indexG) && ...
+               numel(indexG)==nnz(mask) && all(mask(indexG)), ...
+            'Grid CSV and stable valid-grid mask do not match (%s).', ...
+            regionNames{k});
+        r = NaN(sz); qr = NaN(sz); qp = NaN(sz);
+        r(indexG) = double(g.Pearson_r);
+        qr(indexG) = double(g.q_FDR_region);
+        qp(indexG) = double(g.q_FDR_all_grids);
+
+        t = regionTags{k};
+        M.(['lon_' t]) = lon;
+        M.(['lat_' t]) = lat;
+        M.(['r_map_' t]) = r;
+        M.(['mask_' t]) = mask;
+        M.(['q_region_map_' t]) = qr;
+        M.(['q_global_map_' t]) = qp;
+    end
+end
+
+function [ii,jj] = localGridIndices(x,y,lon,lat,regionName)
+% Convert approximate CSV coordinates to native 0.05-degree grid indices.
+% Each point must match an actual grid coordinate within 0.001 degrees.
+    dx = median(diff(lon));
+    dy = median(diff(lat));
+    ii = round((x-lon(1))/dx)+1;
+    jj = round((y-lat(1))/dy)+1;
+    assert(all(ii>=1 & ii<=numel(lon)) && ...
+           all(jj>=1 & jj<=numel(lat)), ...
+        'CSV coordinate outside the regional box (%s).',regionName);
+    assert(all(abs(lon(ii)-x)<1e-3) && ...
+           all(abs(lat(jj)-y)<1e-3), ...
+        'CSV point does not align with the native grid (%s).',regionName);
+end

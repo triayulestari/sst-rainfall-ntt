@@ -1,0 +1,9 @@
+
+===== CLEAN TRANSITION SENSITIVITY START =====
+Original Data root : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data
+Sensitivity folder : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity
+Maximum stage      : 4
+Delta convention   : H09 - H08
+SKIP completed: 01 / Source overlap
+
+RUN 02 / Prepare H08_Final and H09_Alternative raw inputs

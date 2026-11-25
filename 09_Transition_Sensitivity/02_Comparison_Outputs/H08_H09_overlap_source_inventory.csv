@@ -1,0 +1,5 @@
+Month_YYYYMM,Platform,Product_tag,Filename,SST_variable,Longitude_variable,Latitude_variable,Original_SST_units,SST_spatial_size,File_size_bytes
+202210,H08,200,H08_20221001_0000_1MSST200_FLDK.06001_06001.nc,sea_surface_temperature,lon,lat,kelvin,6001 x 6001,22268560
+202210,H09,201,H09_20221001_0000_1MSST201_FLDK.06001_06001.nc,sea_surface_temperature,lon,lat,kelvin,6001 x 6001,22007406
+202211,H08,200,H08_20221101_0000_1MSST200_FLDK.06001_06001.nc,sea_surface_temperature,lon,lat,kelvin,6001 x 6001,22427709
+202211,H09,201,H09_20221101_0000_1MSST201_FLDK.06001_06001.nc,sea_surface_temperature,lon,lat,kelvin,6001 x 6001,22162424

@@ -1,0 +1,37 @@
+
+===== CLEAN TRANSITION SENSITIVITY START =====
+Original Data root : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data
+Sensitivity folder : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity
+Maximum stage      : 7
+Delta convention   : H09 - H08
+
+RUN: 01 / Source overlap
+
+===== SST H08 / H09 OVERLAP COMPARISON =====
+Months: 202210 and 202211 | Difference convention: H09 - H08
+202210 H08 | H08_20221001_0000_1MSST200_FLDK.06001_06001.nc | SST=sea_surface_temperature | 6001 x 6001 | input units=kelvin
+202210 H09 | H09_20221001_0000_1MSST201_FLDK.06001_06001.nc | SST=sea_surface_temperature | 6001 x 6001 | input units=kelvin
+202211 H08 | H08_20221101_0000_1MSST200_FLDK.06001_06001.nc | SST=sea_surface_temperature | 6001 x 6001 | input units=kelvin
+202211 H09 | H09_20221101_0000_1MSST201_FLDK.06001_06001.nc | SST=sea_surface_temperature | 6001 x 6001 | input units=kelvin
+202210 | co-located grid=1 | maximum coordinate delta=0 deg
+202211 | co-located grid=1 | maximum coordinate delta=0 deg
+
+===== REGIONAL COMPARISON (H09 MINUS H08, CELSIUS) =====
+    <strong>Month_YYYYMM</strong>           <strong>Region</strong>           <strong>N_H08_valid</strong>    <strong>N_H09_valid</strong>    <strong>H08_mean_C</strong>    <strong>H09_mean_C</strong>    <strong>Delta_regional_mean_H09_minus_H08_C</strong>    <strong>Paired_grid_aligned</strong>    <strong>N_paired</strong>    <strong>Mean_paired_H09_minus_H08_C</strong>
+    <strong>____________</strong>    <strong>____________________</strong>    <strong>___________</strong>    <strong>___________</strong>    <strong>__________</strong>    <strong>__________</strong>    <strong>___________________________________</strong>    <strong>___________________</strong>    <strong>________</strong>    <strong>___________________________</strong>
+
+     {'202210'}     {'Flores'          }       10975          11031         29.505        29.842                    0.33715                         true             10975                0.33978          
+     {'202210'}     {'Sumba'           }        5633           5634         29.077        29.375                    0.29818                         true              5633                0.29814          
+     {'202210'}     {'Timor'           }        8867           8875         29.547        29.851                    0.30418                         true              8867                0.30416          
+     {'202210'}     {'NTT_study_domain'}       91455          91552         29.569        29.883                    0.31383                         true             91455                0.31418          
+     {'202211'}     {'Flores'          }       10960          11031         29.917        30.292                    0.37509                         true             10960                0.37852          
+     {'202211'}     {'Sumba'           }        5633           5634         29.588        29.904                    0.31546                         true              5633                0.31548          
+     {'202211'}     {'Timor'           }        8864           8875         30.403        30.682                    0.27921                         true              8864                0.27932          
+     {'202211'}     {'NTT_study_domain'}       91429          91552         30.212        30.547                    0.33452                         true             91429                0.33532          
+
+
+===== OVERLAP SENSITIVITY COMPLETE =====
+CSV: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\02_Comparison_Outputs\H08_H09_overlap_regional_comparison.csv
+PNG: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\02_Comparison_Outputs\H08_H09_overlap_comparison.png
+TXT: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\02_Comparison_Outputs\H08_H09_overlap_methods.txt
+Review pixel counts, coordinate check, and sign H09-H08.

@@ -1,0 +1,93 @@
+
+===== CLEAN TRANSITION SENSITIVITY START =====
+Original Data root : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data
+Sensitivity folder : E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity
+Maximum stage      : 5
+Delta convention   : H09 - H08
+SKIP completed: 01 / Source overlap
+SKIP 02 / Both raw regional scenarios already exist.
+SKIP completed: Stage 02 / H08_Final / b_compute_regional_anomalies.m
+SKIP completed: Stage 02 / H09_Alternative / b_compute_regional_anomalies.m
+LINEAGE QC PASS: H08 matches original to 1e-8; H09 differs only in 6 SST inputs; all CHIRPS identical.
+SKIP completed: Stage 03 / H08_Final / a_monthly_zero_lag.m
+SKIP completed: Stage 03 / H09_Alternative / a_monthly_zero_lag.m
+SKIP completed: Stage 03 / H08_Final / b_autocorrelation_effective_n.m
+SKIP completed: Stage 03 / H09_Alternative / b_autocorrelation_effective_n.m
+SKIP completed: Stage 03 / H08_Final / c_lagged_correlation.m
+SKIP completed: Stage 03 / H09_Alternative / c_lagged_correlation.m
+SKIP completed: Stage 04 / H08_Final / a_seasonal_mean_anomalies.m
+SKIP completed: Stage 04 / H09_Alternative / a_seasonal_mean_anomalies.m
+SKIP completed: Stage 04 / H08_Final / b_seasonal_correlation.m
+SKIP completed: Stage 04 / H09_Alternative / b_seasonal_correlation.m
+SKIP completed: Stage 04 / H08_Final / c_seasonal_robustness.m
+SKIP completed: Stage 04 / H09_Alternative / c_seasonal_robustness.m
+SKIP completed: Stage 04 / H08_Final / d_check_seasonal_annual_dependence.m
+SKIP completed: Stage 04 / H09_Alternative / d_check_seasonal_annual_dependence.m
+SKIP completed: Stage 04 / H08_Final / e_compile_seasonal_uncertainty.m
+SKIP completed: Stage 04 / H09_Alternative / e_compile_seasonal_uncertainty.m
+
+RUN: Stage 05 / H08_Final / b_spatial_correlation_fdr.m
+
+===== SPATIAL CORRELATION / EFFECTIVE-N =====
+Flores: 1158 valid grids | rhoSST=0.5182 | N range=118..118
+Sumba: 565 valid grids | rhoSST=0.6090 | N range=118..118
+Timor: 1088 valid grids | rhoSST=0.5479 | N range=118..118
+
+===== SPATIAL CORRELATION FDR QC =====
+BH-FDR within 3 regions; pooled family = 2811 valid grids.
+Flores: grids=1158, median r=+0.0493, per-region q<0.05= 78, pooled q<0.05=  0
+Sumba : grids= 565, median r=+0.0274, per-region q<0.05=  0, pooled q<0.05=  0
+Timor : grids=1088, median r=+0.1184, per-region q<0.05=  0, pooled q<0.05=  0
+[Warning: Differences relative to previous spatial results. Verify full grid CSV, source data, effective-N calculation, and
+regional boxes before changing the manuscript.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('b_spatial_correlation_fdr', 'E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H08_Final\05_Spatial_Analysis\b_spatial_correlation_fdr.m', 285)" style="font-weight:bold">b_spatial_correlation_fdr</a> (<a href="matlab: opentoline('E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\03_Scenarios\H08_Final\05_Spatial_Analysis\b_spatial_correlation_fdr.m',285,0)">line 285</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\Matlab\R2021a\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\Matlab\R2021a\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_H08_H09_clean>execute_script', 'E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\run_H08_H09_clean.m', 241)" style="font-weight:bold">run_H08_H09_clean>execute_script</a> (<a href="matlab: opentoline('E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\run_H08_H09_clean.m',241,0)">line 241</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_H08_H09_clean>run_once', 'E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\run_H08_H09_clean.m', 228)" style="font-weight:bold">run_H08_H09_clean>run_once</a> (<a href="matlab: opentoline('E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\run_H08_H09_clean.m',228,0)">line 228</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_H08_H09_clean', 'E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\run_H08_H09_clean.m', 194)" style="font-weight:bold">run_H08_H09_clean</a> (<a href="matlab: opentoline('E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\run_H08_H09_clean.m',194,0)">line 194</a>)] 
+Saved: spatial_correlation_results.mat, spatial_correlation_summary.csv, spatial_correlation_grid_results.csv
+IMPORTANT: Within-region dots do not survive pooled correction if all pooled counts are zero.
+PASS: Stage 05 / H08_Final / b_spatial_correlation_fdr.m
+
+RUN: Stage 05 / H09_Alternative / b_spatial_correlation_fdr.m
+
+===== SPATIAL CORRELATION / EFFECTIVE-N =====
+Flores: 1158 valid grids | rhoSST=0.5264 | N range=118..118
+Sumba: 565 valid grids | rhoSST=0.6126 | N range=118..118
+Timor: 1088 valid grids | rhoSST=0.5515 | N range=118..118
+
+===== SPATIAL CORRELATION FDR QC =====
+BH-FDR within 3 regions; pooled family = 2811 valid grids.
+Flores: grids=1158, median r=+0.0625, per-region q<0.05=110, pooled q<0.05=  0
+Sumba : grids= 565, median r=+0.0361, per-region q<0.05=  0, pooled q<0.05=  0
+Timor : grids=1088, median r=+0.1303, per-region q<0.05=  0, pooled q<0.05=  0
+Saved: spatial_correlation_results.mat, spatial_correlation_summary.csv, spatial_correlation_grid_results.csv
+IMPORTANT: Within-region dots do not survive pooled correction if all pooled counts are zero.
+PASS: Stage 05 / H09_Alternative / b_spatial_correlation_fdr.m
+LINEAGE QC PASS: H08 matches original to 1e-8; H09 differs only in 6 SST inputs; all CHIRPS identical.
+
+===== BUILDING CURRENT H08/H09 COMPARISON =====
+COMPARE PASS: 02_Regional_Timeseries/regional_timeseries_raw.csv (120 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_anomalies.csv (120 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_calendar_month_means.csv (12 matched rows)
+COMPARE PASS: 02_Regional_Timeseries/regional_detrending_summary.csv (3 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/monthly_zero_lag_correlation.csv (12 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/autocorrelation_effectiveN.csv (3 matched rows)
+COMPARE PASS: 03_Monthly_and_Lagged/lagged_correlation_results.csv (39 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_mean_anomalies.csv (114 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_correlation_basic.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_robustness_results.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_LOYO_results.csv (114 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_annual_dependence_QC.csv (12 matched rows)
+COMPARE PASS: 04_Seasonal_Analysis/seasonal_uncertainty_summary.csv (12 matched rows)
+COMPARE PASS: 05_Spatial_Analysis/spatial_correlation_summary.csv (3 matched rows)
+COMPARE PASS: 05_Spatial_Analysis/spatial_correlation_grid_results.csv (2811 matched rows)
+
+===== COMPARISON CREATED =====
+Metric summaries: 125; changed numeric records: 17756; FDR families: 7
+Output: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\04_Comparison
+
+===== PIPELINE FINISHED THROUGH STAGE 05 =====
+Comparison results: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\04_Comparison
+Log: E:\1-UNDANA\0-Penelitian\0-ICEST\0-smujo_rev3\Data\09_Transition_Sensitivity\05_Run_Logs\run_20261120_092843.txt
+Stage 07a/07b are NOT included; their original SST NetCDF input must be source-switched spatially before a valid H08/H09 comparison.

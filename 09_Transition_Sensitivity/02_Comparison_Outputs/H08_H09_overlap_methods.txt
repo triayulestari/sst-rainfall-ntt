@@ -1,0 +1,16 @@
+H08/H09 SST SOURCE-PRODUCT OVERLAP COMPARISON
+Months: October and November 2022. Delta convention: H09-H08.
+For adoption of H08 instead of old H09, reverse the delta sign.
+Input files: see H08_H09_overlap_source_inventory.csv.
+Products: H08 1MSST200 vs H09 1MSST201.
+Source products differ in platform AND processing version.
+Rectangular SST boxes exactly as regional Stage 02 extraction.
+Finite SST only, arithmetic means, no interpolation or weighting.
+Invalid/fill SST removed; Kelvin converted to Celsius if needed.
+Delta regional mean includes differences in valid-pixel coverage.
+Paired differences use only jointly valid, co-located native pixels.
+Maximum tolerated geographic discrepancy: 0.0001 degrees.
+202210: paired grid aligned=1; max coordinate difference=0 deg.
+202211: paired grid aligned=1; max coordinate difference=0 deg.
+These results do NOT recalculate anomalies, lag, season or FDR.
+Two months alone are not suitable for general bias significance.
